@@ -1,4 +1,4 @@
-const API = "http://localhost:3000";
+const API = "https://bus-system-s4fq.onrender.com";
 
 /* Load and display totals in the college page */
 async function loadStats() {
