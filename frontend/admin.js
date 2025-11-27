@@ -1,4 +1,7 @@
-const API = "https://bus-system-s4fq.onrender.com";
+fetch("https://bus-system-s4fq.onrender.com/reset", {
+    method: "POST"
+});
+
 
 /* Load lists when admin page opens */
 loadAll();
