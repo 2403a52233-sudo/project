@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Admin • Campus Transport</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Top Header -->
+    <div class="header">
+        <div class="brand">
+            <div class="logo"><img src="images/logo.svg" alt="SR" style="height:36px; width:36px; vertical-align:middle;"/></div>
+            <div>
+                <div class="app-title">Admin Dashboard</div>
+                <div class="muted">Manage buses, routes & drivers</div>
+            </div>
+        </div>
+
+        <div class="header-actions">
+            <button class="btn secondary" onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <div class="grid">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="nav">
+                <a class="active" href="admin.html">Admin Dashboard</a>
+            </nav>
+
+            <div style="margin-top:20px;">
+                <button class="btn danger" onclick="resetAll()">🔄 Restart System</button>
+            </div>
+        </aside>
+
+        <!-- Main Area -->
+        <main class="main">
+
+            <!-- Title Card -->
+            <div style="text-align:center;margin-bottom:16px">
+                <img src="images/bus.svg" alt="Buses" style="max-width:280px; height:auto;"/>
+            </div>
+            <div class="card">
+                <div class="h1">Manage Data</div>
+                <div class="muted">Add, edit or remove buses, routes and drivers</div>
+            </div>
+
+            <!-- VIEW ALL -->
+            <div class="card">
+                <div class="h2">View All Details</div>
+                <button class="btn" onclick="viewAll()">View All</button>
+                <div id="combinedTable" style="margin-top:16px"></div>
+            </div>
+
+            <!-- Manage Buses -->
+            <div class="card">
+                <div class="h2">Manage Buses</div>
+
+                <div class="form-row">
+                    <div class="col">
+                        <input id="busNumber" class="input" type="text" placeholder="Enter bus number">
+                    </div>
+                    <div style="width:150px">
+                        <button class="btn" onclick="addBus()">Add Bus</button>
+                    </div>
+                </div>
+
+                <div id="busList" style="margin-top:16px"></div>
+            </div>
+
+            <!-- Manage Routes -->
+            <div class="card">
+                <div class="h2">Manage Routes</div>
+
+                <div class="form-row">
+                    <div class="col">
+                        <input id="routeName" class="input" type="text" placeholder="Enter route name">
+                    </div>
+                    <div style="width:150px">
+                        <button class="btn" onclick="addRoute()">Add Route</button>
+                    </div>
+                </div>
+
+                <div id="routeList" style="margin-top:16px"></div>
+            </div>
+
+            <!-- Manage Drivers -->
+            <div class="card">
+                <div class="h2">Manage Drivers</div>
+
+                <div class="form-row">
+                    <div class="col">
+                        <input id="driverNumber" class="input" type="text" placeholder="Enter driver number">
+                    </div>
+                </div>
+
+                <div class="form-row" style="margin-top:10px;">
+                    <div class="col">
+                        <input id="driverName" class="input" type="text" placeholder="Enter driver name">
+                    </div>
+                    <div style="width:150px">
+                        <button class="btn" onclick="addDriver()">Add Driver</button>
+                    </div>
+                </div>
+
+                <div id="driverList" style="margin-top:16px"></div>
+            </div>
+
+        </main>
+
+    </div>
+
+</div>
+
+<script src="admin.js"></script>
+<script src="app.js"></script>
+<script>requireRole('admin');</script>
+
+</body>
+</html>

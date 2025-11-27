@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>SR Transport • Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <div class="login-wrapper">
+    <div class="login-card">
+
+      <div class="login-header">
+        <div class="login-logo">
+          <img src="images/logo.svg" alt="SR" />
+        </div>
+        <h2>SR Transport</h2>
+        <p class="login-sub">Sign in to access your dashboard</p>
+      </div>
+
+      <div class="login-fields">
+
+        <label class="label">Username</label>
+        <input id="username" class="input" type="text" placeholder="e.g. johndoe" />
+
+        <label class="label">Password</label>
+        <input id="password" class="input" type="password" placeholder="Enter your password" />
+
+        <label class="label">Role</label>
+        <select id="role" class="input">
+          <option value="admin">Admin</option>
+          <option value="driver">Driver</option>
+          <option value="college">SR College Management</option>
+          <option value="student">Student</option>
+        </select>
+
+        <button class="btn login-btn" onclick="login()">Sign In</button>
+
+        <div class="hint">Use any username and password for demo access.</div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

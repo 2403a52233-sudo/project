@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Student • Campus Transport</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Header -->
+    <div class="header">
+        <div class="brand">
+            <div class="logo"><img src="images/logo.svg" alt="SR" style="height:36px; width:36px; vertical-align:middle;"/></div>
+            <div>
+                <div class="app-title">Student Panel</div>
+                <div class="muted">View routes, bus status & updates</div>
+            </div>
+        </div>
+        <div class="header-actions">
+            <button class="btn secondary" onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <div class="grid">
+
+        <!-- Sidebar (only Student panel visible) -->
+        <aside class="sidebar">
+            <nav class="nav">
+                <a class="active" href="student.html">Student Panel</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main">
+
+            <div style="text-align:center;margin-bottom:16px">
+                <img src="images/student.svg" alt="Student" style="max-width:220px; height:auto;"/>
+            </div>
+
+            <!-- Select Bus -->
+            <div class="card">
+                <div class="h2">Select Bus</div>
+                <select id="studentBus" class="input" onchange="loadStudentData()"></select>
+            </div>
+
+            <!-- Routes Section -->
+            <div class="card">
+                <div class="h2">Available Routes</div>
+                <div id="studentRoutes" class="muted"></div>
+            </div>
+
+            <!-- Notifications Section -->
+            <div class="card">
+                <div class="h2">Notifications</div>
+                <div id="notifications"></div>
+            </div>
+
+        </main>
+
+    </div>
+
+</div>
+
+<script src="student.js"></script>
+<script src="app.js"></script>
+<script>requireRole('student');</script>
+
+</body>
+</html>

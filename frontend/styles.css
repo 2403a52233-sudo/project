@@ -1,0 +1,226 @@
+/* Modern Login UI – Purple Theme */
+
+:root {
+    --card: #ffffff;
+    --text: #1a1f36;
+    --muted: #6b7280;
+    --accent: #6a32ff;
+    --accent-hover: #5426d9;
+    --shadow: 0 18px 50px rgba(0,0,0,0.25);
+    --radius: 22px;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Remove background image completely */
+body {
+    background: #f5f5f5;   /* or choose any color you want */
+    font-family: "Inter", Arial, sans-serif;
+    color: var(--text);
+}
+
+/* Wrapper */
+.login-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+/* Frosted Card */
+.login-card {
+    width: 420px;
+    background: rgba(255,255,255,0.92);
+    padding: 42px 34px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.35);
+}
+
+/* Logo circle */
+.login-logo img {
+    height: 72px;
+    width: 72px;
+    display: block;
+    margin: 0 auto 18px;
+}
+
+/* Titles */
+.login-card h2 {
+    margin-top: 8px;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.login-sub {
+    color: var(--muted);
+    margin-top: 6px;
+    margin-bottom: 28px;
+    font-size: 15px;
+    text-align: center;
+}
+
+/* Field labels */
+.label {
+    margin-top: 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+/* Inputs */
+.input {
+    width: 100%;
+    padding: 14px 16px;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.08);
+    background: rgba(255,255,255,0.95);
+    font-size: 15px;
+    outline: none;
+}
+
+/* Purple Button */
+.btn.login-btn {
+    width: 100%;
+    margin-top: 26px;
+    padding: 15px 16px;
+    border-radius: 14px;
+    background: linear-gradient(90deg, #7033ff, #5220d1);
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 28px rgba(112,51,255,0.32);
+}
+
+.btn.login-btn:hover {
+    filter: brightness(1.06);
+}
+
+/* Hint */
+.hint {
+    margin-top: 18px;
+    font-size: 13px;
+    color: var(--muted);
+    text-align: center;
+}
+
+/* ------------------------- Admin / Dashboard Layout ------------------------- */
+
+/* Reuse variables from :root above */
+
+/* Page container */
+.container {
+    max-width: 1200px;
+    margin: 18px auto;
+    padding: 18px;
+}
+
+/* Header */
+.header {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    margin-bottom:18px;
+}
+
+.brand {
+    display:flex;
+    gap:12px;
+    align-items:center;
+}
+
+.logo img { display:block; }
+.app-title { font-weight:700; font-size:18px; }
+.muted { color:var(--muted); font-size:14px; }
+
+.header-actions { display:flex; gap:8px; align-items:center; }
+
+/* Grid layout: sidebar + main */
+.grid {
+    display:grid;
+    grid-template-columns: 260px 1fr;
+    gap:18px;
+}
+
+/* Sidebar */
+.sidebar {
+    background: #fff;
+    border-radius:12px;
+    padding:14px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.06);
+}
+
+.nav a {
+    display:block;
+    padding:10px 12px;
+    color:var(--text);
+    text-decoration:none;
+    border-radius:8px;
+    margin-bottom:6px;
+}
+
+.nav a.active, .nav a:hover { background: #f0f4ff; color: var(--accent-hover); }
+
+/* Main area and cards */
+.main { display:flex; flex-direction:column; gap:14px; }
+.card {
+    background:#fff;
+    border-radius:12px;
+    padding:14px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.04);
+}
+
+.h1 { font-size:18px; font-weight:700; margin-bottom:6px; }
+.h2 { font-size:16px; font-weight:700; margin-bottom:10px; }
+
+/* Form rows */
+.form-row { display:flex; gap:12px; align-items:center; }
+.col { flex:1; }
+
+/* Buttons */
+.btn {
+    display:inline-block;
+    padding:10px 12px;
+    border-radius:10px;
+    background: var(--accent);
+    color:#fff;
+    border:none;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.btn.secondary { background:#6b7280; }
+.btn.danger { background:#ff4d4f; }
+
+/* Input fallback styling: keep .input rules above */
+
+/* Responsive adjustments */
+@media (max-width: 880px) {
+    .grid { grid-template-columns: 1fr; }
+    .sidebar { order:2; }
+    .main { order:1; }
+}
+
+/* Small table and visual tweaks */
+table { width:100%; border-collapse:collapse; }
+th, td { padding:8px; border:1px solid #eee; }
+
+/* Utility spacing for inline styles replaced in HTML */
+.small-muted { color:var(--muted); font-size:13px; }
+
+/* Ensures images don't overflow */
+img { max-width:100%; height:auto; }

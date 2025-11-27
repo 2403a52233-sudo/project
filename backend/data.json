@@ -1,0 +1,67 @@
+{
+  "buses": [
+    {
+      "number": "swd"
+    },
+    {
+      "number": "3"
+    },
+    {
+      "number": "5"
+    },
+    {
+      "number": "1"
+    },
+    {
+      "number": "12"
+    }
+  ],
+  "routes": [
+    {
+      "name": "s"
+    },
+    {
+      "name": "sadcas"
+    },
+    {
+      "name": "vdrz"
+    },
+    {
+      "name": "kazipet"
+    }
+  ],
+  "drivers": [
+    {
+      "name": "kass"
+    },
+    {
+      "name": "sfc"
+    },
+    {
+      "number": "kai",
+      "name": "sfc"
+    },
+    {
+      "number": "23456789",
+      "name": "sai"
+    }
+  ],
+  "students": [],
+  "status": {
+    "1": {
+      "status": "On Time",
+      "updatedAt": "2025-11-22T16:22:21.596Z"
+    },
+    "3": {
+      "status": "Delayed",
+      "updatedAt": "2025-11-24T04:42:38.538Z"
+    }
+  },
+  "location": {
+    "3": {
+      "location": "w",
+      "updatedAt": "2025-11-22T16:22:27.981Z"
+    }
+  },
+  "attendance": []
+}

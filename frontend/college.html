@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>College Management • Campus Transport</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+        /* ⭐ Improved Stats Grid Layout ⭐ */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 10px;
+        }
+
+        .stats-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        }
+
+        .stats-card h3 {
+            margin: 0;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .stats-card p {
+            margin-top: 6px;
+            color: #666;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Header -->
+    <div class="header">
+        <div class="brand">
+            <div class="logo"><img src="images/logo.svg" alt="SR" style="height:36px; width:36px; vertical-align:middle;"/></div>
+            <div>
+                <div class="app-title">SR College Management</div>
+                <div class="muted">Monitor system performance & reports</div>
+            </div>
+        </div>
+        <div class="header-actions">
+            <button class="btn secondary" onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <div class="grid">
+
+        <!-- Sidebar (only College Management visible) -->
+        <aside class="sidebar">
+            <nav class="nav">
+                <a class="active" href="college.html">SR College Management</a>
+            </nav>
+        </aside>
+
+        <!-- Main -->
+        <main class="main">
+
+            <!-- Overview Card -->
+            <div class="card">
+                <div class="h1">System Performance</div>
+                <div class="muted">Live statistics of system data</div>
+            </div>
+
+            <div style="text-align:center;margin-bottom:16px">
+                <img src="images/college.svg" alt="College" style="max-width:280px; height:auto;"/>
+            </div>
+
+            <!-- ⭐ FIXED Stats Grid ⭐ -->
+            <div class="stats-grid">
+                <div class="stats-card">
+                    <h3 id="totalBuses">0</h3>
+                    <p>Total Buses</p>
+                </div>
+
+                <div class="stats-card">
+                    <h3 id="totalRoutes">0</h3>
+                    <p>Total Routes</p>
+                </div>
+
+                <div class="stats-card">
+                    <h3 id="totalDrivers">0</h3>
+                    <p>Total Drivers</p>
+                </div>
+            </div>
+
+            <!-- Reports -->
+            <div class="card">
+                <div class="h2">Reports</div>
+                <p class="muted" style="margin-bottom:12px">
+                    Generate detailed system usage and transport reports.
+                </p>
+                <button class="btn" onclick="generateReport()">Generate Report</button>
+            </div>
+
+        </main>
+
+    </div>
+
+</div>
+
+<script src="college.js"></script>
+<script src="app.js"></script>
+<script>requireRole('college');</script>
+</body>
+</html>
