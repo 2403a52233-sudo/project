@@ -1,7 +1,8 @@
-fetch("https://bus-system-s4fq.onrender.com/reset", {
-    method: "POST"
-});
+/* ===============================  
+   FIXED ADMIN PANEL (FULL VERSION)
+   =============================== */
 
+const API = "https://bus-system-s4fq.onrender.com";   // MAIN FIX ✔
 
 /* Load lists when admin page opens */
 loadAll();
@@ -12,7 +13,7 @@ async function loadAll() {
     loadDrivers();
 }
 
-/* Disable listing under each card */
+/* Disable list under each card */
 function showList(id, items, type) {
     document.getElementById(id).innerHTML = "";
 }
@@ -41,15 +42,19 @@ async function loadBuses() {
 /* ================= ROUTES ================= */
 async function addRoute() {
     const name = document.getElementById("routeName").value.trim();
+    const bus = document.getElementById("routeBusNumber").value.trim();
+
     if (!name) return alert("Enter route name");
+    if (!bus) return alert("Enter bus number for route");
 
     await fetch(API + "/routes", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({ name })
+        body: JSON.stringify({ name, bus })
     });
 
     document.getElementById("routeName").value = "";
+    document.getElementById("routeBusNumber").value = "";
     loadRoutes();
 }
 
@@ -119,13 +124,12 @@ async function resetAll() {
     loadAll();
 }
 
-/* ================= VIEW ALL (WITH DRIVER NUMBER + NAME) ================= */
+/* ================= VIEW ALL (Combine Data) ================= */
 
 let viewShown = false;
 
 async function viewAll() {
 
-    // toggle feature
     if (viewShown) {
         document.getElementById("combinedTable").innerHTML = "";
         viewShown = false;
@@ -134,9 +138,9 @@ async function viewAll() {
 
     viewShown = true;
 
-    const buses = await (await fetch(API + "/buses")).json();
-    const routes = await (await fetch(API + "/routes")).json();
-    const drivers = await (await fetch(API + "/drivers")).json();
+    const buses    = await (await fetch(API + "/buses")).json();
+    const routes   = await (await fetch(API + "/routes")).json();
+    const drivers  = await (await fetch(API + "/drivers")).json();
 
     let maxLen = Math.max(buses.length, routes.length, drivers.length);
 
@@ -156,9 +160,9 @@ async function viewAll() {
         html += `
             <tr>
                 <td>${buses[i] ? buses[i].number : "—"}</td>
-                <td>${routes[i] ? routes[i].name : "—"}</td>
+                <td>${routes[i] ? routes[i].name   : "—"}</td>
                 <td>${drivers[i] ? drivers[i].number : "—"}</td>
-                <td>${drivers[i] ? drivers[i].name : "—"}</td>
+                <td>${drivers[i] ? drivers[i].name   : "—"}</td>
 
                 <td><button onclick="editCombined(${i})">Edit</button></td>
                 <td><button onclick="deleteCombined(${i})" style="background:red;color:white;">Delete</button></td>
@@ -172,10 +176,10 @@ async function viewAll() {
 
 /* ================= EDIT FULL ROW ================= */
 async function editCombined(index) {
-    let newBus = prompt("Enter new bus number:");
-    let newRoute = prompt("Enter new route name:");
+    let newBus          = prompt("Enter new bus number:");
+    let newRoute        = prompt("Enter new route name:");
     let newDriverNumber = prompt("Enter new driver number:");
-    let newDriverName = prompt("Enter new driver name:");
+    let newDriverName   = prompt("Enter new driver name:");
 
     if (newBus)
         await fetch(`${API}/buses/${index}`, {
@@ -208,8 +212,8 @@ async function editCombined(index) {
 async function deleteCombined(index) {
     if (!confirm("Delete bus, route, and driver?")) return;
 
-    await fetch(`${API}/buses/${index}`, { method: "DELETE" });
-    await fetch(`${API}/routes/${index}`, { method: "DELETE" });
+    await fetch(`${API}/buses/${index}`,   { method: "DELETE" });
+    await fetch(`${API}/routes/${index}`,  { method: "DELETE" });
     await fetch(`${API}/drivers/${index}`, { method: "DELETE" });
 
     viewAll();
